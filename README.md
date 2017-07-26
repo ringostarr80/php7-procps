@@ -7,7 +7,7 @@
 # install packages
 sudo apt install make bc g++ php-dev procps libprocps4 libprocps4-dev
 
-# isntall PHP-CPP
+# install PHP-CPP
 git clone https://github.com/CopernicaMarketingSoftware/PHP-CPP.git
 cd PHP-CPP
 make
@@ -34,4 +34,24 @@ sudo service <apache, lighttpd or nginx> restart
 
 # to test if the extension was installed successful, run:
 php test.php
+```
+
+## usage
+
+```php
+<?php
+use RingoLeese as RL;
+
+$procps = new RL\ProcPS();
+$options = RL\ProcPS::FILLCOM | RL\ProcPS::FILLSTATUS;
+$processes = $procps->Read($options);
+
+// output how many processes are running.
+print sprintf("found %d processes.\n", count($processes));
+
+// output all running processes with the pid, command, commandline and resident-memory.
+foreach($processes as $process) {
+	$commandLine = (isset($process['cmdline'])) ? '"'.$process['cmdline'].'"' : 'NULL';
+	print 'PID: '.$process['tid'].'; Command: "'.$process['cmd'].'"; CommandLine: '.$commandLine.'; Resident Memory: '.$process['vm_rss'].'KB'."\n";
+}
 ```
