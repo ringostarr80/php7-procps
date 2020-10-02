@@ -57,7 +57,7 @@ jobs:
     #  uses: github/codeql-action/autobuild@v1
     
     - name: PHP-CPP
-      uses: github/CopernicaMarketingSoftware/PHP-CPP/v2.2.0
+      uses: github/CopernicaMarketingSoftware/PHP-CPP@d4ef49aac412be3d3844ba338767d91ff54229de
 
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 https://git.io/JvXDl
