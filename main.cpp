@@ -34,7 +34,9 @@ extern "C" {
 		procps.property("FILLGRP", PROC_FILLGRP, Php::Const);			// 0x000010
 		procps.property("FILLSTATUS", PROC_FILLSTATUS, Php::Const);		// 0x000020
 		procps.property("FILLSTAT", PROC_FILLSTAT, Php::Const);			// 0x000040
+		#ifdef PROC_FILLWCHAN
 		procps.property("FILLWCHAN", PROC_FILLWCHAN, Php::Const);		// 0x000080
+		#endif
 		procps.property("FILLARG", PROC_FILLARG, Php::Const);			// 0x000100
 		procps.property("FILLCGROUP", PROC_FILLCGROUP, Php::Const);		// 0x000200
 		procps.property("FILLSUPGRP", PROC_FILLSUPGRP, Php::Const);		// 0x000400
